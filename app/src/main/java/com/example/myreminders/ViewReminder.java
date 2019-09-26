@@ -9,51 +9,41 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class ViewReminder extends AppCompatActivity {
 
     Intent intent;
 
     DBHandler dbHandler;
 
-    Reminders remindersAdapter;
-
-    ListView reminderView;
+    long id;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_view_reminder);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        bundle = this.getIntent().getExtras();
+        id = bundle.getLong("_id");
+
         dbHandler = new DBHandler(this, null);
 
-        reminderView = (ListView) findViewById(R.id.reminderListView);
+        String shoppingListName = dbHandler.getMyReminderName((int)id);
 
-        remindersAdapter = new Reminders(this, dbHandler.getMyReminders(), 0);
-
-        reminderView.setAdapter(remindersAdapter);
-
-        reminderView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                intent = new Intent(MainActivity.this, ViewReminder.class);
-                intent.putExtra("_id", id);
-                startActivity(intent);
-            }
-        });
+        this.setTitle(shoppingListName);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_view_reminder, menu);
         return true;
     }
 
@@ -80,7 +70,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openAddReminder(View view) {
-        intent = new Intent(this, AddReminder.class);
-        startActivity(intent);
     }
 }

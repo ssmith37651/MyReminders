@@ -8,4 +8,6 @@
     <string name="title">Title</string>
     <string name="date">Date</string>
     <string name="type">Type</string>
+    <string name="title_activity_view_reminder">View Reminder</string>
+    <string name="create_reminder">Create Reminder</string>
 </resources>

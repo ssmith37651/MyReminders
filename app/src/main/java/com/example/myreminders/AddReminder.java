@@ -2,6 +2,8 @@ package com.example.myreminders;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,6 +33,9 @@ public class AddReminder extends AppCompatActivity {
 
     // declare a Calendar
     Calendar calendar;
+
+    // declare a DBHandler
+    DBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,8 @@ public class AddReminder extends AppCompatActivity {
                         calendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
+
+        dbHandler = new DBHandler(this, null);
     }
 
     public void updateDueDate() {
@@ -120,6 +127,7 @@ public class AddReminder extends AppCompatActivity {
             // if any of the Strings are empty, display Please enter ... Toast
             Toast.makeText(this, "Please enter a Title, Date, and Type!", Toast.LENGTH_LONG).show();
         } else {
+            dbHandler.addReminder(title, date, type);
             // if none of the Strings are empty, display Shopping List Added Text Toast
             Toast.makeText(this, "Reminder Added!", Toast.LENGTH_LONG).show();
         }
