@@ -43,11 +43,12 @@ public class MainActivity extends AppCompatActivity {
         reminderView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                intent = new Intent(MainActivity.this, ViewReminder.class);
                 intent.putExtra("_id", id);
                 startActivity(intent);
             }
+
         });
+
     }
 
     @Override

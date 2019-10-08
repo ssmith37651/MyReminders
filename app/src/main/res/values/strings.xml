@@ -10,4 +10,12 @@
     <string name="type">Type</string>
     <string name="title_activity_view_reminder">View Reminder</string>
     <string name="create_reminder">Create Reminder</string>
+    <string name="title_activity_add_item">Add Item</string>
+    <string-array name="types">
+        <item></item>
+        <item>School</item>
+        <item>Work</item>
+        <item>Personal</item>
+        <item>Medical</item>
+    </string-array>
 </resources>

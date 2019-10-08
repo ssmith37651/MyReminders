@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".AddReminder"
-    tools:showIn="@layout/activity_add_reminder">
+    tools:context=".AddItem"
+    tools:showIn="@layout/activity_add_item">
 
     <TableLayout
-        android:layout_width="395dp"
-        android:layout_height="659dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -19,7 +19,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" >
 
             <TextView
                 android:id="@+id/titleTextView"
@@ -38,40 +38,11 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/dateTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/date" />
-
-            <EditText
-                android:id="@+id/dateEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="date" />
-        </TableRow>
+            android:layout_height="match_parent" />
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/typeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/type" />
-
-            <Spinner
-                android:id="@+id/typeSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/types"
-                android:paddingTop="@dimen/table_layout_padding" />
-
-        </TableRow>
+            android:layout_height="match_parent" />
 
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
